@@ -7,7 +7,6 @@ export default function initAnimacaoScroll() {
       const sectionTop = section.getBoundingClientRect().top;
       const isSectionVisible = sectionTop - windowHalf < 0;
       if (isSectionVisible) {
-        console.log("animar");
         section.classList.add("ativo");
       }
     });
