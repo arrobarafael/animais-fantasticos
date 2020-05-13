@@ -1,6 +1,6 @@
 function initTabNav() {
-  const tabMenu = document.querySelectorAll(".js-tabmenu li");
-  const tabContent = document.querySelectorAll(".js-tabcontent section");
+  const tabMenu = document.querySelectorAll("[data-tab='menu'] li");
+  const tabContent = document.querySelectorAll("[data-tab='content'] section");
 
   tabContent[0].classList.add("ativo");
 
@@ -13,7 +13,8 @@ function initTabNav() {
 
     function activeTab(index) {
       resetActiveTabs();
-      tabContent[index].classList.add("ativo");
+      const direcao = tabContent[index].dataset.anime;
+      tabContent[index].classList.add("ativo", direcao);
     }
 
     tabMenu.forEach((animalImage, index) => {
@@ -24,7 +25,9 @@ function initTabNav() {
 initTabNav();
 
 function initAccordion() {
-  const accordionList = document.querySelectorAll(".js-accordion dt");
+  const accordionList = document.querySelectorAll(
+    "[data-anime='accordion'] dt"
+  );
   const activeClass = "ativo";
 
   if (accordionList.length) {
@@ -44,7 +47,9 @@ function initAccordion() {
 initAccordion();
 
 function initScrollSuave() {
-  const linksInternos = document.querySelectorAll("a[href^='#']");
+  const linksInternos = document.querySelectorAll(
+    "[data-menu = 'suave'] a[href^='#']"
+  );
   console.log(linksInternos);
 
   function scrollToSection(event) {
@@ -72,7 +77,7 @@ function initScrollSuave() {
 initScrollSuave();
 
 function initAnimacaoScroll() {
-  const sections = document.querySelectorAll(".js-scroll");
+  const sections = document.querySelectorAll("[data-anime='scroll']");
   const windowHalf = window.innerHeight * 0.6;
 
   function animaScroll() {
