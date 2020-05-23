@@ -5,9 +5,9 @@ export default function initAnimaNumeros() {
     numeros.forEach((numero) => {
       let start = 0;
       const total = +numero.innerText;
-      let incremento = Math.floor(total / 100);
+      const incremento = Math.floor(total / 100);
       const timer = setInterval(() => {
-        start = start + incremento;
+        start += incremento;
         numero.innerText = start;
         if (start > total) {
           numero.innerText = total;
@@ -17,6 +17,8 @@ export default function initAnimaNumeros() {
     });
   }
 
+  let observer;
+
   function handleMutation(mutation) {
     if (mutation[0].target.classList.contains("ativo")) {
       observer.disconnect();
@@ -25,7 +27,7 @@ export default function initAnimaNumeros() {
   }
 
   const observerTarget = document.querySelector(".numeros");
-  const observer = new MutationObserver(handleMutation);
+  observer = new MutationObserver(handleMutation);
 
   observer.observe(observerTarget, { attributes: true });
 }

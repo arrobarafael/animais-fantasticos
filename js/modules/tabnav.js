@@ -4,19 +4,19 @@ export default function initTabNav() {
 
   tabContent[0].classList.add("ativo");
 
+  function resetActiveTabs() {
+    tabContent.forEach((section) => {
+      section.classList.remove("ativo");
+    });
+  }
+
+  function activeTab(index) {
+    resetActiveTabs();
+    const direcao = tabContent[index].dataset.anime;
+    tabContent[index].classList.add("ativo", direcao);
+  }
+
   if (tabMenu.length && tabContent.length) {
-    function resetActiveTabs() {
-      tabContent.forEach((section) => {
-        section.classList.remove("ativo");
-      });
-    }
-
-    function activeTab(index) {
-      resetActiveTabs();
-      const direcao = tabContent[index].dataset.anime;
-      tabContent[index].classList.add("ativo", direcao);
-    }
-
     tabMenu.forEach((animalImage, index) => {
       animalImage.addEventListener("click", () => activeTab(index));
     });
