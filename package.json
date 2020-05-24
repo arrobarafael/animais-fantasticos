@@ -5,8 +5,8 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack js/script.js --mode production --output ./main.js",
-    "dev": "webpack js/script.js --mode development --output ./main.js --watch"
+    "build": "webpack  --mode production",
+    "dev": "webpack  --mode development"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/arrobarafael/animais-fantasticos#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
@@ -26,6 +29,8 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-    "eslint-config-prettier": "^6.11.0"
+    "@babel/polyfill": "^7.8.7",
+    "eslint-config-prettier": "^6.11.0",
+    "whatwg-fetch": "^3.0.0"
   }
 }
