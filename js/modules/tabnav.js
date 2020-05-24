@@ -1,7 +1,7 @@
 export default class initTabNav {
   constructor(menu, content) {
-    const tabMenu = document.querySelectorAll(menu);
-    const tabContent = document.querySelectorAll(content);
+    this.tabMenu = document.querySelectorAll(menu);
+    this.tabContent = document.querySelectorAll(content);
     this.activeClass = "ativo";
   }
 
