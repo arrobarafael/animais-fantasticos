@@ -1,6 +1,5 @@
-export default class initTabNav{
-
-  constructor(menu, content){
+export default class initTabNav {
+  constructor(menu, content) {
     const tabMenu = document.querySelectorAll(menu);
     const tabContent = document.querySelectorAll(content);
     this.activeClass = "ativo";
@@ -12,24 +11,23 @@ export default class initTabNav{
     });
   }
 
-  addTabNavEvent(){
+  addTabNavEvent() {
     this.tabMenu.forEach((animalImage, index) => {
       animalImage.addEventListener("click", () => this.activeTab(index));
     });
   }
 
-  init(){
+  init() {
     if (this.tabMenu.length && this.tabContent.length) {
-      this.activeTab(0)
+      this.activeTab(0);
       this.addTabNavEvent();
     }
+    return this;
   }
-  
+
   activeTab(index) {
-    resetActiveTabs();
+    this.resetActiveTabs();
     const direcao = this.tabContent[index].dataset.anime;
     this.tabContent[index].classList.add(this.activeClass, direcao);
-  }
-  
   }
 }
